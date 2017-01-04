@@ -1,5 +1,7 @@
 ##spark-docker
 
+[![Build Status](https://travis-ci.org/univizor/spark-docker.svg?branch=master)](https://travis-ci.org/univizor/spark-docker)
+
 Dockerized Apache Spark that can run as a cluster.
 
 ###Build image on a local system
