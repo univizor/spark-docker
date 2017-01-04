@@ -21,6 +21,9 @@ RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.
 
 RUN mkdir -p /srv/data && chown spark: /srv/data
 
+ADD ./sbin/runspark.sh /usr/local/bin/runspark.sh
+RUN chmod +x /usr/local/bin/runspark.sh
+
 USER spark
 
 WORKDIR /srv/data
@@ -35,4 +38,4 @@ ENV PATH=$PATH:/home/spark/spark/bin:/home/spark/spark/sbin \
   SPARK_LOG_DIR=/srv/data/spark-logs \
   SPARK_WORKER_DIR=/srv/data
 
-ENTRYPOINT ["/usr/local/bin/dumb-init","start-master.sh"]
+ENTRYPOINT ["runspark.sh"]
