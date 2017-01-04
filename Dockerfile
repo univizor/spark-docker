@@ -1,11 +1,11 @@
 #
 # Apache spark docker container build
-# Based on univizor:java8
+# Based on univizor/spark-base
 #
 
 FROM univizor/spark-base
 
-MAINTAINER Jozko Skrablin
+MAINTAINER Jozko Skrablin <jozko@zomg.si>
 
 
 RUN adduser --uid 3001 --disabled-password --gecos 'Apache Spark' spark
