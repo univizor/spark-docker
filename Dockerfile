@@ -1,8 +1,3 @@
-#
-# Apache spark docker container build
-# Based on univizor/spark-base
-#
-
 FROM univizor/spark-base
 
 MAINTAINER Jozko Skrablin <jozko@zomg.si>
