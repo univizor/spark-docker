@@ -13,7 +13,7 @@ If building on a local system - build using ```docker build -t univizor/spark-do
 * Start master and expose web GUI to localhost on 8080:
 
 ```bash
-docker run --rm -it -p 8081:8081 --name spark-master univizor/spark-docker start-master.sh
+docker run --rm -it -p 8080:8080 --name spark-master univizor/spark-docker start-master.sh
 ```
 
 * Start slave and expose web GUI to localhost on 8081:

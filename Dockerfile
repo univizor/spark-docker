@@ -2,14 +2,16 @@ FROM univizor/spark-base
 
 MAINTAINER Jozko Skrablin <jozko@zomg.si>
 
-
 RUN adduser --uid 3001 --disabled-password --gecos 'Apache Spark' spark
 
-RUN cd /home/spark && wget http://www.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz && \
-  tar xzf spark-2.1.0-bin-hadoop2.7.tgz && \
-  ln -s spark-2.1.0-bin-hadoop2.7 spark && \
+ENV SPARK_VERSION=2.1.0 \
+  HADOOP_VERSION=2.7
+
+RUN cd /home/spark && wget http://www.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
+  tar xzf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
+  ln -s spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark && \
   chown spark: -R /home/spark && \
-  rm -f spark-2.1.0-bin-hadoop2.7.tgz
+  rm -f spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 
 RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 -O /usr/local/bin/dumb-init && \
   chmod +x /usr/local/bin/dumb-init
