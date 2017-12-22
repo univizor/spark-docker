@@ -1,0 +1,15 @@
+pipeline:
+  build:
+    image: docker:latest
+    environment:
+      - DOCKER_HOST=tcp://dind:2375
+    commands:
+      - sleep 10
+      - docker build -t univizor/spark-docker .
+
+services:
+  dind:
+    image: docker:dind
+    pull: true
+    privileged: true
+    command: [ "--storage-driver=vfs", "--tls=false" ]
