@@ -12,4 +12,4 @@ services:
     image: docker:dind
     pull: true
     privileged: true
-    command: [ "--storage-driver=vfs", "--tls=false" ]
+    command: [ "--tls=false" ]
